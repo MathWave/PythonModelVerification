@@ -24,6 +24,13 @@ except:
     exit(404)
 
 if __name__ == '__main__':
+    from os.path import abspath
+    from os.path import join
+    from os import system
+
+    current = abspath(__file__).replace('\\', '/').split('/')
+    system('cd /' + join(*current[0:len(current) - 1]))
+
     system('mkdir working_directory')  # создаем рабочую директорию
     fields_list = translate('models/' + openfile)
     print('model translated')
